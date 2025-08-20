@@ -8,21 +8,37 @@
 }
 
 html, body, #root { height: 100%; }
-body { @apply bg-white text-slate-900; }
-.dark body { @apply bg-slate-900 text-slate-100; }
+body { @apply bg-gradient-to-br from-slate-50 to-white text-slate-900; }
+.dark body { @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-slate-100; }
 
-.container { @apply max-w-6xl mx-auto px-4; }
-.card { @apply rounded-2xl border border-slate-200 bg-white shadow-soft dark:bg-slate-800 dark:border-slate-700; }
-.btn { @apply inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:shadow transition dark:bg-slate-800 dark:border-slate-600; }
-.btn-primary { @apply bg-brand text-white border-transparent hover:brightness-105; }
-.btn-ghost { @apply bg-transparent border-transparent; }
-.badge { @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-slate-600 border-slate-300 dark:text-slate-300 dark:border-slate-600; }
-.input { @apply w-full rounded-xl border-slate-300 bg-white dark:bg-slate-800 dark:border-slate-600; }
+/* Enhanced component styles */
+.container { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+.card { @apply rounded-2xl border border-slate-200/50 bg-white/80 backdrop-blur-sm shadow-soft hover:shadow-soft-lg transition-all duration-300 dark:bg-slate-800/80 dark:border-slate-700/50; }
+.btn { @apply inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200 dark:bg-slate-800 dark:border-slate-600; }
+.btn-primary { @apply bg-gradient-to-r from-brand-500 to-brand-600 text-white border-transparent hover:from-brand-600 hover:to-brand-700 hover:shadow-glow transform hover:-translate-y-0.5; }
+.btn-secondary { @apply bg-gradient-to-r from-accent-500 to-accent-600 text-white border-transparent hover:from-accent-600 hover:to-accent-700 hover:shadow-glow transform hover:-translate-y-0.5; }
+.btn-ghost { @apply bg-transparent border-transparent hover:bg-slate-100 dark:hover:bg-slate-800; }
+.badge { @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium text-slate-600 border-slate-300 bg-slate-50 dark:text-slate-300 dark:border-slate-600 dark:bg-slate-800; }
+.input { @apply w-full rounded-xl border-slate-300 bg-white/80 backdrop-blur-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all duration-200 dark:bg-slate-800/80 dark:border-slate-600; }
 .muted { @apply text-slate-500 dark:text-slate-400; }
 
-.hero { @apply text-center border-b border-slate-200 dark:border-slate-700; }
-.hero-wrap { @apply container py-16 sm:py-20; }
-.hero-title { @apply text-4xl sm:text-5xl font-bold mb-3; }
-.hero-sub { @apply text-lg muted mb-6; }
-.hero-actions { @apply flex gap-3 justify-center flex-wrap; }
-.grid-3 { @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3; }
+/* Hero section enhancements */
+.hero { @apply relative text-center border-b border-slate-200/50 dark:border-slate-700/50 overflow-hidden; }
+.hero::before { @apply absolute inset-0 bg-hero-pattern opacity-30; content: ''; }
+.hero-wrap { @apply container py-20 sm:py-28 relative z-10; }
+.hero-title { @apply text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-brand-600 to-slate-900 bg-clip-text text-transparent dark:from-slate-100 dark:via-brand-400 dark:to-slate-100; }
+.hero-sub { @apply text-xl sm:text-2xl muted mb-8 max-w-3xl mx-auto leading-relaxed; }
+.hero-actions { @apply flex gap-4 justify-center flex-wrap; }
+.grid-3 { @apply grid gap-6 sm:grid-cols-2 lg:grid-cols-3; }
+
+/* Enhanced animations */
+.animate-fade-in { animation: fadeIn 0.6s ease-out; }
+.animate-slide-up { animation: slideUp 0.6s ease-out; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+
+/* Glass morphism effects */
+.glass { @apply bg-white/20 backdrop-blur-md border border-white/30 dark:bg-slate-900/20 dark:border-slate-700/30; }
+
+/* Gradient text utilities */
+.gradient-text { @apply bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent; }
+.gradient-text-reverse { @apply bg-gradient-to-r from-accent-500 to-brand-500 bg-clip-text text-transparent; }
